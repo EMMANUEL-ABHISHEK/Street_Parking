@@ -48,6 +48,7 @@ optree==0.11.0
 packaging==24.1
 pathspec==0.10.1
 protobuf==4.25.3
+python==3.10.11
 pyasn1==0.6.0
 Pygments==2.18.0
 PyJWT==2.8.0
