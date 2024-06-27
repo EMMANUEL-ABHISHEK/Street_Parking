@@ -6,7 +6,7 @@ from config import Config
 from models.resnet50_model import analyze_image
 import cv2
 
-app = Flask(_name_)
+app = Flask(__name__)
 app.config.from_object(Config)
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
