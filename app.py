@@ -5,9 +5,7 @@ from twilio.rest import Client
 from config import Config
 from models.resnet50_model import analyze_image
 import cv2
-from dotenv import load_dotenv
 
-load_dotenv()
 
 app = Flask(__name__)
 app.config.from_object(Config)
