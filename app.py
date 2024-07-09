@@ -6,7 +6,7 @@ from config import Config
 from models.resnet50_model import analyze_image
 import cv2
 
-app = Flask(_name_)
+app = Flask(__name__)
 app.config.from_object(Config)
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -61,7 +61,7 @@ def upload_file():
             if analysis_result is not None:
                 now = datetime.now()
                 current_date = now.strftime("%Y-%m-%d")
-                output_csv_path = os.path.join(os.path.dirname(os.path.realpath(_file_)), f"{current_date}_parking_results.csv")
+                output_csv_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), f"{current_date}_parking_results.csv")
 
                 with open(output_csv_path, 'a', newline='') as f:
                     f.write(f"{file.filename},{analysis_result}\n")
@@ -133,5 +133,5 @@ def generate_frames():
 def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(debug=True)
